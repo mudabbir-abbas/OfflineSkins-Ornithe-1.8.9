@@ -27,3 +27,9 @@ Requires Gradle (tested on Gradle 9.x and Java 25):
 ```bash
 gradle build
 ```
+
+The compiled mod `.jar` will be output to `build/libs/`.
+
+## Credits & License
+
+Original mod by [zlainsama](https://github.com/zlainsama/OfflineSkins). This port is released under the MIT License, see [LICENSE.txt](LICENSE.txt
