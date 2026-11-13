@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'net.fabricmc.fabric-loom-remap' version '1.18.4'
+    id 'ploceus' version '1.18.1'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven {
+        name = 'Ornithe Releases'
+        url = 'https://maven.ornithemc.net/releases'
+    }
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+    mavenCentral()
+}
+
+ploceus {
+    // Minecraft 1.8.9 uses Intermediary Generation 2
+    setIntermediaryGeneration(2)
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Feather mappings for 1.8.9 (Nests/Raven/Sparrow are not used on 1.8.9)
+    mappings ploceus.featherMappings(project.feather_build)
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft_version
+
+    filesMatching('fabric.mod.json') {
+        expand 'version': project.version, 'mcversion': project.minecraft_version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    // No hardcoded Java 8 toolchain or release pin; compiles natively with your active JDK (e.g. Java 25)
+}
+
+java {
+    withSourcesJar()
+}
+
+jar {
+    from('LICENSE.txt') {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}

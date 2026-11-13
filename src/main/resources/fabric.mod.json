@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "offlineskins",
+  "version": "${version}",
+  "name": "OfflineSkins (Ornithe)",
+  "description": "Cache and load local/offline player skins in Minecraft 1.8.9 on Ornithe.",
+  "authors": [
+    "zlainsama (original)",
+    "Ornithe 1.8.9 Port"
+  ],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "lain.mods.skins.init.ornithe.OrnitheOfflineSkins"
+    ]
+  },
+  "mixins": [
+    "offlineskins.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.25",
+    "minecraft": "1.8.9",
+    "java": ">=8"
+  }
+}

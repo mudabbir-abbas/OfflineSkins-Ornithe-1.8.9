@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "lain.mods.skins.init.ornithe.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "ClientPlayerEntityMixin",
+    "MinecraftClientTickMixin",
+    "PlayerInfoMixin",
+    "PlayerTabOverlayMixin",
+    "SkullBlockEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
