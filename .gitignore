@@ -1,0 +1,12 @@
+.gradle/
+build/
+run/
+cachedImages/
+config/
+logs/
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+.idea/
+*.iml
+.vscode/
+.DS_Store
